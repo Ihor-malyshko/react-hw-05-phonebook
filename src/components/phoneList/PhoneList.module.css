@@ -1,0 +1,34 @@
+.taskList {
+  background-color: violet;
+  list-style: none;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.btn {
+  color: white;
+  background-color: tomato;
+}
+
+/* Animation */
+.enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.enterActive {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 250ms linear;
+}
+
+.exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.exitActive {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 250ms linear;
+}

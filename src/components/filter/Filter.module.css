@@ -1,0 +1,63 @@
+.field {
+  position: relative;
+  margin-bottom: 30px;
+  display: flex;
+  width: 300px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+
+  color: #212121;
+
+  border: 1px solid #757575;
+  border-radius: 4px;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+
+  color: #212121;
+
+  transition: transform 250ms linear;
+}
+
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+  /* top: -20px; */
+  /* left: 16px; */
+  transform: translateY(-40px);
+  /* opacity: 0; */
+  color: #2196f3;
+}
+
+/* Animation */
+.enter {
+  opacity: 0;
+  transform: scale(0.1);
+}
+
+.enterActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 250ms linear;
+}
+
+.exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.exitActive {
+  opacity: 0;
+  transform: scale(0.1);
+  transition: all 250ms linear;
+}
