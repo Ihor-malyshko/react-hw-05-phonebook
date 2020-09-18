@@ -20,4 +20,4 @@ const Filter = ({ onSearch }) => {
   );
 };
 
-export default withTransition(s)(true)(Filter);
+export default withTransition(s)(Filter);

@@ -68,17 +68,21 @@ class App extends Component {
 
   render() {
     const { contacts, alert } = this.state;
+
     return (
       <>
         <Logo />
         <Section>
-          <Alert in={alert} />
+          <Alert isVisible={alert} />
           <ContactForm onAddContact={this.addContact} />
         </Section>
 
         {contacts && (
           <Section title="Contacts">
-            <Filter onSearch={this.inputFilterChannge} />
+            <Filter
+              isVisible={contacts.length > 1 ? true : false}
+              onSearch={this.inputFilterChannge}
+            />
 
             <PhoneList
               contacts={this.getSearchContacs()}

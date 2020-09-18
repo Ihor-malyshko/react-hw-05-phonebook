@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-const withTransition = style => visible => WrappedComponent => {
+const withTransition = style => WrappedComponent => {
   return class withTransition extends Component {
-    componentDidMount() {
-      console.log('in hoc', visible);
-    }
-
     render() {
+      const visible =
+        this.props.isVisible === undefined ? true : this.props.isVisible;
       return (
         <CSSTransition
           appear={true}

@@ -8,4 +8,4 @@ class Logo extends Component {
   }
 }
 
-export default withTransition(s)(true)(Logo);
+export default withTransition(s)(Logo);
