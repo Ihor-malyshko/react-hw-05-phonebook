@@ -1,4 +1,5 @@
 import React from 'react';
+import withTransition from '../hoc/withTransition';
 import s from './Filter.module.css';
 
 const Filter = ({ onSearch }) => {
@@ -19,4 +20,4 @@ const Filter = ({ onSearch }) => {
   );
 };
 
-export default Filter;
+export default withTransition(s)(true)(Filter);

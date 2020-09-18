@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
 import Logo from './Logo/Logo';
 import Section from './section/Section';
 import PhoneList from './phoneList/PhoneList';
 import ContactForm from './contactForm/ContactForm';
 import Filter from './filter/Filter';
-import { v4 as uuidv4 } from 'uuid';
-import { CSSTransition } from 'react-transition-group';
-
-import sFilter from './filter/Filter.module.css';
-import sAlert from './Alert.module.css';
+import Alert from './Alert/Alert';
 
 import defContacts from '../assets/defContacts.json';
 
@@ -38,8 +36,6 @@ class App extends Component {
   addContact = ({ name, number }) => {
     this.setState(prevState => {
       if (this.state.contacts.some(el => el.name === name)) {
-        // и тебя за стелизировать
-        console.log(`${name}, already exist in contacts`);
         this.setState(() => this.setState({ alert: true }));
         setTimeout(() => this.setState({ alert: false }), 2000);
       } else {
@@ -74,33 +70,16 @@ class App extends Component {
     const { contacts, alert } = this.state;
     return (
       <>
-        <Logo name="Logo" />
+        <Logo />
         <Section>
-          <CSSTransition
-            appear={alert}
-            in={alert}
-            timeout={250}
-            unmountOnExit
-            classNames={sAlert}
-          >
-            <div className={sAlert.alert}>
-              This name, already exist in contacts.
-            </div>
-          </CSSTransition>
+          <Alert in={alert} />
           <ContactForm onAddContact={this.addContact} />
         </Section>
 
         {contacts && (
           <Section title="Contacts">
-            <CSSTransition
-              appear={true}
-              in={contacts.length > 1}
-              timeout={250}
-              classNames={sFilter}
-              unmountOnExit
-            >
-              <Filter onSearch={this.inputFilterChannge} />
-            </CSSTransition>
+            <Filter onSearch={this.inputFilterChannge} />
+
             <PhoneList
               contacts={this.getSearchContacs()}
               onRemoveContact={this.removeContact}
